@@ -72,7 +72,9 @@ const upload = multer({
 });
 
 
-
+app.get("/", (req, res) => {
+    res.send(" Moment Maker Backend is Running");
+});
 app.post(
     "/create-post",
     createPostLimiter,
