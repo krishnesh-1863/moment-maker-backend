@@ -59,7 +59,7 @@ const upload = multer({
     storage: multer.memoryStorage(),
 
     limits: {
-        fileSize: 2 * 1024 * 1024 // 2 MB
+        fileSize: 5 * 1024 * 1024 // 2 MB
     },
 
     fileFilter: (req, file, cb) => {
@@ -141,7 +141,7 @@ app.delete("/posts/:id", authMiddleware.auth, async (req, res) => {
         }
 
         // Uncomment after ImageKit delete issue is fixed
-        // await deleteFile(post.imageFileId);
+        await deleteFile(post.imageFileId);
 
         await postModel.findByIdAndDelete(req.params.id);
 
